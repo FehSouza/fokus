@@ -1,32 +1,21 @@
 import { theme } from '@/theme'
-import { useRef, useState } from 'react'
 import { Pressable, StyleSheet, Text } from 'react-native'
 
-export const PlayButton = () => {
-  const [played, setPlayed] = useState(false)
-  const playedRef = useRef<undefined | NodeJS.Timeout>(undefined)
+interface PlayButtonProps {
+  onPress: () => void
+  played: boolean
+}
 
-  const togglePlay = () => {
-    if (played) {
-      clearInterval(playedRef.current)
-      setPlayed(false)
-      return
-    }
-
-    const id = setInterval(() => console.log('tick'), 1000)
-    playedRef.current = id
-    setPlayed(true)
-  }
-
+export const PlayButton = ({ onPress, played }: PlayButtonProps) => {
   return (
-    <Pressable style={style.playButton} onPress={togglePlay}>
-      <Text style={style.playButtonText}>{played ? 'Pausar' : 'Começar'}</Text>
+    <Pressable style={style.container} onPress={onPress}>
+      <Text style={style.text}>{played ? 'Pausar' : 'Começar'}</Text>
     </Pressable>
   )
 }
 
 const style = StyleSheet.create({
-  playButton: {
+  container: {
     width: '100%',
     backgroundColor: theme.colors.lilac,
     borderRadius: 32,
@@ -36,7 +25,7 @@ const style = StyleSheet.create({
     gap: 8,
   },
 
-  playButtonText: {
+  text: {
     fontSize: 18,
     fontWeight: 'semibold',
     color: theme.colors.blue700,
