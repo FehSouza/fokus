@@ -1,7 +1,7 @@
 import { TimerProvider } from '@/context/TimerProvider'
 import { theme } from '@/theme'
 import { StatusBar, StyleSheet, View } from 'react-native'
-import { Main } from './main'
+import Main from './main'
 
 export default function Index() {
   return (

@@ -1,16 +1,14 @@
+import { PlayButton } from '@/components/PlayButton'
 import { TimerButton } from '@/components/TimerButton'
+import { TimerDisplay } from '@/components/TimerDisplay'
 import { TimerContext, TIMERS } from '@/context/TimerProvider'
 import { theme } from '@/theme'
 import { useContext } from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, View } from 'react-native'
 
-export const Main = () => {
+export default function () {
   const { timerActive } = useContext(TimerContext) || {}
   if (!timerActive) return null
-
-  const date = new Date(timerActive.time * 60 * 1000)
-  const minutes = date.getMinutes()
-  const seconds = String(date.getSeconds()).padStart(2, '0')
 
   return (
     <>
@@ -24,8 +22,8 @@ export const Main = () => {
             <TimerButton key={timer.id} id={timer.id} label={timer.label} isActive={timer.id === timerActive.id} />
           ))}
         </View>
-
-        <Text style={style.timer}>{`${minutes}:${seconds}`}</Text>
+        <TimerDisplay time={timerActive.time} />
+        <PlayButton />
       </View>
     </>
   )
@@ -60,12 +58,5 @@ const style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
-  },
-
-  timer: {
-    color: theme.colors.white,
-    fontSize: 54,
-    fontWeight: 'semibold',
-    textAlign: 'center',
   },
 })
