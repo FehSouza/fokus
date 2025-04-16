@@ -1,6 +1,6 @@
 import { TimerProvider } from '@/context/TimerProvider'
 import { theme } from '@/theme'
-import { StatusBar, StyleSheet, View } from 'react-native'
+import { StatusBar, StyleSheet, Text, View } from 'react-native'
 import Main from './main'
 
 export default function Index() {
@@ -11,6 +11,11 @@ export default function Index() {
       <TimerProvider>
         <Main />
       </TimerProvider>
+
+      <View style={style.footer}>
+        <Text style={style.textFooter}>Projeto fictício e sem fins comerciais.</Text>
+        <Text style={style.textFooter}>Desenvolvido por Alura.</Text>
+      </View>
     </View>
   )
 }
@@ -22,5 +27,15 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: theme.colors.blue700,
     paddingHorizontal: 24,
+  },
+
+  footer: {
+    marginTop: 32,
+  },
+
+  textFooter: {
+    color: theme.colors.gray,
+    fontSize: 12,
+    textAlign: 'center',
   },
 })
