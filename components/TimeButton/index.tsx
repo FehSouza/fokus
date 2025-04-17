@@ -27,11 +27,13 @@ const style = StyleSheet.create({
   },
 
   text: {
-    color: theme.colors.white,
+    fontFamily: 'Montserrat_400Regular',
     fontSize: 12,
+    color: theme.colors.white,
+    textAlign: 'center',
   },
 
   textActive: {
-    fontWeight: 'bold',
+    fontFamily: 'Montserrat_700Bold',
   },
 })

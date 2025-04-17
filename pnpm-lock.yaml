@@ -11,6 +11,12 @@ importers:
       '@babel/runtime':
         specifier: ^7.27.0
         version: 7.27.0
+      '@expo-google-fonts/montserrat':
+        specifier: ^0.3.0
+        version: 0.3.0
+      '@expo-google-fonts/unbounded':
+        specifier: ^0.3.0
+        version: 0.3.0
       '@expo/vector-icons':
         specifier: ^14.0.2
         version: 14.1.0(expo-font@13.0.4(expo@52.0.46(@babel/core@7.26.10)(@babel/preset-env@7.26.9(@babel/core@7.26.10))(@expo/metro-runtime@4.0.1(react-native@0.76.9(@babel/core@7.26.10)(@babel/preset-env@7.26.9(@babel/core@7.26.10))(@types/react@18.3.20)(react@18.3.1)))(react-native-webview@13.12.5(react-native@0.76.9(@babel/core@7.26.10)(@babel/preset-env@7.26.9(@babel/core@7.26.10))(@types/react@18.3.20)(react@18.3.1))(react@18.3.1))(react-native@0.76.9(@babel/core@7.26.10)(@babel/preset-env@7.26.9(@babel/core@7.26.10))(@types/react@18.3.20)(react@18.3.1))(react@18.3.1))(react@18.3.1))(react-native@0.76.9(@babel/core@7.26.10)(@babel/preset-env@7.26.9(@babel/core@7.26.10))(@types/react@18.3.20)(react@18.3.1))(react@18.3.1)
@@ -844,9 +850,15 @@ packages:
     resolution: {integrity: sha512-XQsZgjm2EcVUiZQf11UBJQfmZeEmOW8DpI1gsFeln6w0ae0ii4dMQEQ0kjl6DspdWX1aGY1/loyXnP0JS06e/A==}
     engines: {node: '>=0.8.0'}
 
+  '@expo-google-fonts/montserrat@0.3.0':
+    resolution: {integrity: sha512-Na/1b+J/v2rdZOZlw7x5F8codXYbvgREhzB+K0r3hkJMudEmqJKBBFAkHIRUvekJyUkZC4+owX8XPpU+dIhorA==}
+
+  '@expo-google-fonts/unbounded@0.3.0':
+    resolution: {integrity: sha512-RTDu+xq2VniCxKw6wcV3AzpegopKyKo/u9x/EtCC+7UL8Q5jvOSJVlQXW3fY6S9zRY8ZN0g0JaTe4eZjB1+xjg==}
+
   '@expo/bunyan@4.0.1':
     resolution: {integrity: sha512-+Lla7nYSiHZirgK+U/uYzsLv/X+HaJienbD5AKX1UQZHYfWaP+9uuQluRB4GrEVWF0GZ7vEVp/jzaOT9k/SQlg==}
-    engines: {node: '>=0.10.0'}
+    engines: {'0': node >=0.10.0}
 
   '@expo/cli@0.22.26':
     resolution: {integrity: sha512-I689wc8Fn/AX7aUGiwrh3HnssiORMJtR2fpksX+JIe8Cj/EDleblYMSwRPd0025wrwOV9UN1KM/RuEt/QjCS3Q==}
@@ -5322,6 +5334,10 @@ snapshots:
   '@egjs/hammerjs@2.0.17':
     dependencies:
       '@types/hammerjs': 2.0.46
+
+  '@expo-google-fonts/montserrat@0.3.0': {}
+
+  '@expo-google-fonts/unbounded@0.3.0': {}
 
   '@expo/bunyan@4.0.1':
     dependencies:

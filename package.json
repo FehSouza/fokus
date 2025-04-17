@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.27.0",
+    "@expo-google-fonts/montserrat": "^0.3.0",
+    "@expo-google-fonts/unbounded": "^0.3.0",
     "@expo/vector-icons": "^14.0.2",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",

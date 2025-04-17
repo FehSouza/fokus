@@ -16,8 +16,9 @@ const style = StyleSheet.create({
   },
 
   text: {
-    color: theme.colors.gray,
+    fontFamily: 'Montserrat_400Regular',
     fontSize: 12,
+    color: theme.colors.gray,
     textAlign: 'center',
   },
 })

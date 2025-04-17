@@ -15,9 +15,9 @@ export const TimeDisplay = ({ time }: TimeDisplayProps) => {
 
 const style = StyleSheet.create({
   text: {
-    color: theme.colors.white,
+    fontFamily: 'Unbounded_600SemiBold',
     fontSize: 54,
-    fontWeight: 'semibold',
+    color: theme.colors.white,
     textAlign: 'center',
   },
 })

@@ -32,6 +32,17 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "node_modules/@expo-google-fonts/montserrat/400Regular/Montserrat_400Regular.ttf",
+            "node_modules/@expo-google-fonts/montserrat/600SemiBold/Montserrat_600SemiBold.ttf",
+            "node_modules/@expo-google-fonts/montserrat/700Bold/Montserrat_700Bold.ttf",
+            "node_modules/@expo-google-fonts/unbounded/600SemiBold/Unbounded_600SemiBold.ttf"
+          ]
+        }
       ]
     ],
     "experiments": {

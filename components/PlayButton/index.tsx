@@ -29,8 +29,8 @@ const style = StyleSheet.create({
   },
 
   text: {
+    fontFamily: 'Montserrat_600SemiBold',
     fontSize: 18,
-    fontWeight: 'semibold',
     color: theme.colors.blue700,
   },
 })
