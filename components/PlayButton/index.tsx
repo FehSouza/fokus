@@ -1,5 +1,6 @@
 import { theme } from '@/theme'
 import { Pressable, StyleSheet, Text } from 'react-native'
+import { PauseIcon, PlayIcon } from '../Icons'
 
 interface PlayButtonProps {
   onPress: () => void
@@ -9,6 +10,7 @@ interface PlayButtonProps {
 export const PlayButton = ({ onPress, played }: PlayButtonProps) => {
   return (
     <Pressable style={style.container} onPress={onPress}>
+      {played ? <PauseIcon /> : <PlayIcon />}
       <Text style={style.text}>{played ? 'Pausar' : 'Começar'}</Text>
     </Pressable>
   )
@@ -20,6 +22,7 @@ const style = StyleSheet.create({
     backgroundColor: theme.colors.lilac,
     borderRadius: 32,
     minHeight: 40,
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,

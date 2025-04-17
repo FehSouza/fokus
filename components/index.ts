@@ -1,4 +1,5 @@
 export * from './Footer'
+export * from './Icons'
 export * from './PlayButton'
 export * from './TimeButton'
 export * from './TimeDisplay'
