@@ -6,6 +6,8 @@ Fokus é um projeto desenvolvido como parte dos estudos para o curso da Alura de
 
 Trata-se de um aplicativo desenvolvido com React Native, projetado para auxiliar na gestão de sessões de foco utilizando a técnica Pomodoro.
 
+### Prévia (iOS - Web - Android)
+ 
 ![Preview da aplicação](assets/images/image-preview.png)
 
 &nbsp;
