@@ -14,8 +14,10 @@ Trata-se de um aplicativo desenvolvido com React Native, projetado para auxiliar
 
 ## Funcionalidades
 
-Iniciar e pausar o temporizador Pomodoro <br>
-Alternar entre modos de "Foco", "Pausa curta" e "Pausa longa" <br>
+Iniciar e pausar o temporizador Pomodoro 
+
+Alternar entre modos de "Foco", "Pausa curta" e "Pausa longa" 
+
 Interface responsiva e intuitiva
 
 &nbsp;
