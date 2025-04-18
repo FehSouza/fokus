@@ -14,7 +14,7 @@ export default function Index() {
   })
 
   return (
-    <View style={style.container}>
+    <View style={[style.container, StyleSheet.absoluteFill]}>
       <StatusBar backgroundColor={theme.colors.blue700} barStyle="light-content" translucent />
 
       {!fontsLoaded && <AnimatedLoadingIcon />}
