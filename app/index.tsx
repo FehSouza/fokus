@@ -1,4 +1,4 @@
-import { Footer } from '@/components'
+import { AnimatedLoadingIcon, Footer } from '@/components'
 import { theme } from '@/theme'
 import { Montserrat_400Regular, Montserrat_600SemiBold, Montserrat_700Bold } from '@expo-google-fonts/montserrat'
 import { Unbounded_600SemiBold, useFonts } from '@expo-google-fonts/unbounded'
@@ -13,13 +13,18 @@ export default function Index() {
     Unbounded_600SemiBold,
   })
 
-  if (!fontsLoaded) return null
-
   return (
     <View style={style.container}>
       <StatusBar backgroundColor={theme.colors.blue700} barStyle="light-content" translucent />
-      <Main />
-      <Footer />
+
+      {!fontsLoaded && <AnimatedLoadingIcon />}
+
+      {!!fontsLoaded && (
+        <>
+          <Main />
+          <Footer />
+        </>
+      )}
     </View>
   )
 }
