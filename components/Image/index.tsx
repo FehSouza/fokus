@@ -1,13 +1,13 @@
-import { Image, StyleSheet, View } from 'react-native'
+import { Image as ImageRN, StyleSheet, View } from 'react-native'
 
-interface TimeImageProps {
+interface ImageProps {
   image: number
 }
 
-export const TimeImage = ({ image }: TimeImageProps) => {
+export const Image = ({ image }: ImageProps) => {
   return (
     <View style={style.container}>
-      <Image style={style.image} resizeMode="contain" fadeDuration={500} source={image} />
+      <ImageRN style={style.image} resizeMode="contain" fadeDuration={500} source={image} />
     </View>
   )
 }

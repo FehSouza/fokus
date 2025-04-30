@@ -12,13 +12,19 @@ export const Footer = () => {
 
 const style = StyleSheet.create({
   container: {
-    marginTop: 32,
+    width: '100%',
+    marginTop: 'auto',
+    paddingVertical: 32,
+    paddingHorizontal: 24,
+    borderTopWidth: 1,
+    borderColor: theme.colors.blue500,
   },
 
   text: {
     fontFamily: 'Montserrat_400Regular',
     fontSize: 12,
-    color: theme.colors.gray,
+    lineHeight: 19,
     textAlign: 'center',
+    color: theme.colors.gray,
   },
 })

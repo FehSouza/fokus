@@ -1,40 +1,69 @@
-import { AnimatedLoadingIcon, Footer } from '@/components'
+import { Button, Container, Logo } from '@/components'
+import { Image } from '@/components/Image'
 import { theme } from '@/theme'
-import { Montserrat_400Regular, Montserrat_600SemiBold, Montserrat_700Bold } from '@expo-google-fonts/montserrat'
-import { Unbounded_600SemiBold, useFonts } from '@expo-google-fonts/unbounded'
-import { StatusBar, StyleSheet, View } from 'react-native'
-import Main from './main'
+import { useRouter } from 'expo-router'
+import { StyleSheet, Text, View } from 'react-native'
 
 export default function Index() {
-  const [fontsLoaded] = useFonts({
-    Montserrat_400Regular,
-    Montserrat_600SemiBold,
-    Montserrat_700Bold,
-    Unbounded_600SemiBold,
-  })
+  const router = useRouter()
 
   return (
-    <View style={[style.container, StyleSheet.absoluteFill]}>
-      <StatusBar backgroundColor={theme.colors.blue700} barStyle="light-content" translucent />
+    <Container>
+      <View style={style.logoContent}>
+        <Logo />
+      </View>
 
-      {!fontsLoaded && <AnimatedLoadingIcon />}
+      <View style={style.textContent}>
+        <Text style={style.text}>
+          Otimize sua{'\n'}produtividade,{'\n'}
+          <Text style={[style.text, style.thickerText]}>mergulhe no{'\n'}que importa</Text>
+        </Text>
+      </View>
 
-      {!!fontsLoaded && (
-        <>
-          <Main />
-          <Footer />
-        </>
-      )}
-    </View>
+      <View style={style.imageContent}>
+        <Image image={require('@/assets/images/home.png')} />
+      </View>
+
+      <View style={style.buttonContent}>
+        <Button text="Quero iniciar!" onPress={() => router.replace('/pomodoro')} />
+      </View>
+    </Container>
   )
 }
 
 const style = StyleSheet.create({
-  container: {
-    flex: 1,
+  logoContent: {
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.colors.blue700,
+    marginTop: 32,
+  },
+
+  textContent: {
+    marginTop: 32,
     paddingHorizontal: 24,
+  },
+
+  text: {
+    fontFamily: 'Unbounded_200ExtraLight',
+    fontSize: 26,
+    lineHeight: 38,
+    textAlign: 'center',
+    color: theme.colors.white,
+  },
+
+  thickerText: {
+    fontFamily: 'Unbounded_400Regular',
+  },
+
+  imageContent: {
+    marginTop: 16,
+    paddingHorizontal: 24,
+  },
+
+  buttonContent: {
+    width: '100%',
+    maxWidth: 528,
+    marginTop: 16,
+    marginHorizontal: 'auto',
+    paddingHorizontal: 48,
   },
 })

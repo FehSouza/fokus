@@ -1,5 +1,5 @@
-import { PlayButton, TimeButton, TimeDisplay } from '@/components'
-import { TimeImage } from '@/components/TimeImage'
+import { Button, Container, PauseIcon, PlayIcon, TimeButton, TimeDisplay } from '@/components'
+import { Image } from '@/components/Image'
 import { theme } from '@/theme'
 import { useRef, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
@@ -17,7 +17,7 @@ const TIMERS: TimerProps[] = [
   { id: 'long', label: 'Pausa longa', image: require('@/assets/images/long.png'), time: 15 * 60 },
 ]
 
-export default function () {
+export default function Pomodoro() {
   const [timeActivated, setTimeActivated] = useState(TIMERS[0])
   const [time, setTime] = useState(timeActivated.time)
   const [played, setPlayed] = useState(false)
@@ -56,35 +56,53 @@ export default function () {
   }
 
   return (
-    <>
-      <TimeImage image={timeActivated.image} />
-
-      <View style={style.timeContainer}>
-        <View style={style.buttonsContent}>
-          {TIMERS?.map((timer) => (
-            <TimeButton
-              key={timer.id}
-              id={timer.id}
-              label={timer.label}
-              isActive={timer.id === timeActivated.id}
-              onPress={handleChangeTime}
-            />
-          ))}
-        </View>
-        <TimeDisplay time={time} />
-        <PlayButton onPress={handleTogglePlay} played={played} />
+    <Container>
+      <View style={style.imageContent}>
+        <Image image={timeActivated.image} />
       </View>
-    </>
+
+      <View style={style.timeContent}>
+        <View style={style.timeWrapper}>
+          <View style={style.buttonsContent}>
+            {TIMERS?.map((timer) => (
+              <TimeButton
+                key={timer.id}
+                id={timer.id}
+                label={timer.label}
+                isActive={timer.id === timeActivated.id}
+                onPress={handleChangeTime}
+              />
+            ))}
+          </View>
+          <TimeDisplay time={time} />
+          <Button
+            icon={played ? <PauseIcon /> : <PlayIcon />}
+            text={played ? 'Pausar' : 'Começar'}
+            onPress={handleTogglePlay}
+          />
+        </View>
+      </View>
+    </Container>
   )
 }
 
 const style = StyleSheet.create({
-  timeContainer: {
+  imageContent: {
+    paddingHorizontal: 24,
+  },
+
+  timeContent: {
     width: '100%',
+    maxWidth: 480,
     marginTop: 32,
-    padding: 24,
+    marginHorizontal: 'auto',
+    paddingHorizontal: 24,
+  },
+
+  timeWrapper: {
     gap: 32,
-    backgroundColor: theme.colors.blue50,
+    padding: 24,
+    backgroundColor: theme.colors.blue500trans,
     borderRadius: 32,
     borderWidth: 2,
     borderColor: theme.colors.blue500,
