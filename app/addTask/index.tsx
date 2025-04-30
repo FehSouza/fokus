@@ -1,5 +1,10 @@
+import { Container } from '@/components'
 import { Text } from 'react-native'
 
 export default function AddTask() {
-  return <Text>Adicionar Tarefa</Text>
+  return (
+    <Container>
+      <Text>Adicionar Tarefa</Text>
+    </Container>
+  )
 }
