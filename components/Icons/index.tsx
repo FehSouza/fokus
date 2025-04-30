@@ -1,4 +1,5 @@
 export * from './AnimatedLoadingIcon'
+export * from './ArrowIcon'
 export * from './CheckIcon'
 export * from './EditIcon'
 export * from './LoadingIcon'

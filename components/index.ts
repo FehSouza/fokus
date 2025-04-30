@@ -1,4 +1,5 @@
 export * from './Button'
+export * from './ButtonBack'
 export * from './Container'
 export * from './Footer'
 export * from './Icons'
