@@ -1,5 +1,6 @@
 import { Button, Container, PlusIcon, Task } from '@/components'
 import { theme } from '@/theme'
+import { router } from 'expo-router'
 import { StyleSheet, Text, View } from 'react-native'
 
 const TASKS = [
@@ -31,7 +32,7 @@ export default function Tasks() {
       )}
 
       <View style={style.buttonContent}>
-        <Button text="Adicionar nova tarefa" icon={<PlusIcon />} outline onPress={() => {}} />
+        <Button text="Adicionar nova tarefa" icon={<PlusIcon />} outline onPress={() => router.navigate('/addTask')} />
       </View>
     </Container>
   )
