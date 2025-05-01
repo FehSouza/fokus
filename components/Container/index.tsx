@@ -9,7 +9,7 @@ interface ContainerProps {
 
 export const Container = ({ children }: ContainerProps) => {
   return (
-    <SafeAreaView style={style.container}>
+    <SafeAreaView style={style.container} edges={['left', 'right', 'bottom']}>
       <ScrollView contentContainerStyle={style.content}>
         <View>{children}</View>
         <Footer />

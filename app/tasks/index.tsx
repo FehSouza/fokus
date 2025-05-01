@@ -41,7 +41,6 @@ export default function Tasks() {
 const style = StyleSheet.create({
   title: {
     paddingHorizontal: 24,
-    marginTop: 32,
     fontFamily: 'Unbounded_400Regular',
     fontSize: 26,
     lineHeight: 49,

@@ -34,7 +34,7 @@ export default function Index() {
 const style = StyleSheet.create({
   logoContent: {
     alignItems: 'center',
-    marginTop: 32,
+    marginTop: 56,
   },
 
   textContent: {
