@@ -1,5 +1,5 @@
 import { theme } from '@/theme'
-import { Pressable, StyleSheet, Text } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 interface TimeButtonProps {
   id: string
@@ -10,9 +10,13 @@ interface TimeButtonProps {
 
 export const TimeButton = ({ id, label, isActive, onPress }: TimeButtonProps) => {
   return (
-    <Pressable style={[style.container, isActive && style.active]} onPress={() => onPress(id)}>
-      <Text style={[style.text, isActive && style.textActive]}>{label}</Text>
-    </Pressable>
+    <TouchableOpacity
+      style={[style.container, isActive && style.active]}
+      activeOpacity={0.7}
+      onPress={() => onPress(id)}
+    >
+      <Text style={style.text}>{label}</Text>
+    </TouchableOpacity>
   )
 }
 
@@ -31,9 +35,5 @@ const style = StyleSheet.create({
     fontSize: 12,
     color: theme.colors.white,
     textAlign: 'center',
-  },
-
-  textActive: {
-    fontFamily: 'Montserrat_700Bold',
   },
 })

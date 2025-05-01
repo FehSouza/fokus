@@ -1,5 +1,5 @@
 import { theme } from '@/theme'
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { CheckIcon, EditIcon, TrashIcon } from '../Icons'
 
 interface TaskProps {
@@ -13,19 +13,19 @@ interface TaskProps {
 export const Task = ({ done, title, handleDone, handleEdit, handleDelete }: TaskProps) => {
   return (
     <View style={[style.task, done && style.taskDone]}>
-      <Pressable onPress={handleDone}>
+      <TouchableOpacity activeOpacity={0.7} onPress={handleDone}>
         <CheckIcon checked={done} />
-      </Pressable>
+      </TouchableOpacity>
 
       <Text style={style.title}>{title}</Text>
 
-      <Pressable onPress={handleEdit}>
+      <TouchableOpacity activeOpacity={0.7} onPress={handleEdit}>
         <EditIcon />
-      </Pressable>
+      </TouchableOpacity>
 
-      <Pressable onPress={handleDelete}>
+      <TouchableOpacity activeOpacity={0.7} onPress={handleDelete}>
         <TrashIcon />
-      </Pressable>
+      </TouchableOpacity>
     </View>
   )
 }

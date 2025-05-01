@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 import { ArrowIcon } from '../Icons'
 
 interface ButtonBackProps {
@@ -7,9 +7,9 @@ interface ButtonBackProps {
 
 export const ButtonBack = ({ handleNavigate }: ButtonBackProps) => {
   return (
-    <Pressable style={style.container} onPress={handleNavigate}>
+    <TouchableOpacity style={style.container} activeOpacity={0.7} onPress={handleNavigate}>
       <ArrowIcon />
-    </Pressable>
+    </TouchableOpacity>
   )
 }
 

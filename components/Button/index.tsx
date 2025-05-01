@@ -1,5 +1,5 @@
 import { theme } from '@/theme'
-import { Pressable, StyleSheet, Text } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 interface ButtonProps {
   icon?: JSX.Element
@@ -10,10 +10,14 @@ interface ButtonProps {
 
 export const Button = ({ icon, text, outline, onPress }: ButtonProps) => {
   return (
-    <Pressable style={[style.container, outline && style.containerOutline]} onPress={onPress}>
+    <TouchableOpacity
+      style={[style.container, outline && style.containerOutline]}
+      activeOpacity={0.7}
+      onPress={onPress}
+    >
       {icon}
       <Text style={[style.text, outline && style.textOutline]}>{text}</Text>
-    </Pressable>
+    </TouchableOpacity>
   )
 }
 
