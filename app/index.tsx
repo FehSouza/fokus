@@ -60,10 +60,7 @@ const style = StyleSheet.create({
   },
 
   buttonContent: {
-    width: '100%',
-    maxWidth: 528,
     marginTop: 16,
-    marginHorizontal: 'auto',
     paddingHorizontal: 48,
   },
 })

@@ -92,10 +92,7 @@ const style = StyleSheet.create({
   },
 
   timeContent: {
-    width: '100%',
-    maxWidth: 480,
     marginTop: 32,
-    marginHorizontal: 'auto',
     paddingHorizontal: 24,
   },
 
