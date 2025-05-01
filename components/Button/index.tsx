@@ -2,28 +2,33 @@ import { theme } from '@/theme'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 interface ButtonProps {
-  icon?: JSX.Element
   text: string
-  outline?: boolean
+  icon?: JSX.Element
+  variant?: 'text' | 'outlined' | 'contained'
   onPress: () => void
 }
 
-export const Button = ({ icon, text, outline, onPress }: ButtonProps) => {
+export const Button = ({ text, icon, variant = 'contained', onPress }: ButtonProps) => {
   return (
     <TouchableOpacity
-      style={[style.container, outline && style.containerOutline]}
+      style={[
+        style.container,
+        variant === 'outlined' && style.containerOutline,
+        variant === 'text' && style.containerText,
+      ]}
       activeOpacity={0.7}
       onPress={onPress}
     >
       {icon}
-      <Text style={[style.text, outline && style.textOutline]}>{text}</Text>
+      <Text style={[style.label, variant === 'outlined' && style.labelOutline, variant === 'text' && style.labelText]}>
+        {text}
+      </Text>
     </TouchableOpacity>
   )
 }
 
 const style = StyleSheet.create({
   container: {
-    width: '100%',
     backgroundColor: theme.colors.lilac,
     borderRadius: 32,
     minHeight: 48,
@@ -39,13 +44,24 @@ const style = StyleSheet.create({
     borderColor: theme.colors.lilac,
   },
 
-  text: {
+  containerText: {
+    minHeight: 40,
+    gap: 4,
+    backgroundColor: 'transparent',
+    borderRadius: 0,
+  },
+
+  label: {
     fontFamily: 'Montserrat_600SemiBold',
     fontSize: 18,
     color: theme.colors.blue700,
   },
 
-  textOutline: {
+  labelOutline: {
     color: theme.colors.lilac,
+  },
+
+  labelText: {
+    fontSize: 12,
   },
 })

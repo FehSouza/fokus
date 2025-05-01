@@ -25,14 +25,18 @@ export default function Tasks() {
               done={task.done}
               handleDone={() => console.log('done')}
               handleEdit={() => console.log('edit')}
-              handleDelete={() => console.log('delete')}
             />
           ))}
         </View>
       )}
 
       <View style={style.buttonContent}>
-        <Button text="Adicionar nova tarefa" icon={<PlusIcon />} outline onPress={() => router.navigate('/addTask')} />
+        <Button
+          text="Adicionar nova tarefa"
+          icon={<PlusIcon />}
+          variant="outlined"
+          onPress={() => router.navigate('/addTask')}
+        />
       </View>
     </Container>
   )

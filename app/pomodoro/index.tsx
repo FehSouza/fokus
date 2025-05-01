@@ -76,8 +76,8 @@ export default function Pomodoro() {
           </View>
           <TimeDisplay time={time} />
           <Button
-            icon={played ? <PauseIcon /> : <PlayIcon />}
             text={played ? 'Pausar' : 'Começar'}
+            icon={played ? <PauseIcon /> : <PlayIcon />}
             onPress={handleTogglePlay}
           />
         </View>
