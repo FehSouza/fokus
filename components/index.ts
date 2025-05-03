@@ -1,6 +1,7 @@
 export * from './Button'
 export * from './ButtonBack'
 export * from './Container'
+export * from './ContainerKeyboardAvoiding'
 export * from './Footer'
 export * from './Icons'
 export * from './Image'

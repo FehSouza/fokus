@@ -1,10 +1,10 @@
-import { Button, CloseIcon, Container, SaveIcon, TrashIcon } from '@/components'
+import { Button, CloseIcon, ContainerKeyboardAvoiding, SaveIcon, TrashIcon } from '@/components'
 import { theme } from '@/theme'
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 
 export default function AddTask() {
   return (
-    <Container>
+    <ContainerKeyboardAvoiding>
       <Text style={style.title}>Adicionar tarefa:</Text>
 
       <View style={style.taskContent}>
@@ -24,7 +24,7 @@ export default function AddTask() {
           <Button text="Salvar" icon={<SaveIcon />} variant="text" onPress={() => {}} />
         </View>
       </View>
-    </Container>
+    </ContainerKeyboardAvoiding>
   )
 }
 
