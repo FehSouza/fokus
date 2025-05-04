@@ -9,7 +9,7 @@ export default function AddTask() {
   const [title, setTitle] = useState('')
   const { addTask } = useContext(TasksContext)
 
-  const handleTask = () => {
+  const handleAddTask = () => {
     addTask(title)
     setTitle('')
     router.navigate('/tasks')
@@ -35,7 +35,7 @@ export default function AddTask() {
         <View style={style.buttonsWrapper}>
           <Button text="Cancelar" icon={<CloseIcon />} variant="text" onPress={() => {}} />
           <Button text="Deletar" icon={<TrashIcon />} variant="text" onPress={() => {}} />
-          <Button text="Salvar" icon={<SaveIcon />} variant="text" onPress={handleTask} />
+          <Button text="Salvar" icon={<SaveIcon />} variant="text" onPress={handleAddTask} />
         </View>
       </View>
     </ContainerKeyboardAvoiding>
