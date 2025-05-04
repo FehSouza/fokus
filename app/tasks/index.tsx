@@ -23,6 +23,7 @@ export default function Tasks() {
               done={task.done}
               handleDone={() => console.log('done')}
               handleEdit={() => console.log('edit')}
+              handleDelete={() => console.log('delete')}
             />
           ))}
         </View>

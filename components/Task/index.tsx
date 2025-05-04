@@ -1,15 +1,16 @@
 import { theme } from '@/theme'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { CheckIcon, EditIcon } from '../Icons'
+import { CheckIcon, EditIcon, TrashIcon } from '../Icons'
 
 interface TaskProps {
   done: boolean
   title: string
   handleDone: () => void
   handleEdit: () => void
+  handleDelete: () => void
 }
 
-export const Task = ({ done, title, handleDone, handleEdit }: TaskProps) => {
+export const Task = ({ done, title, handleDone, handleEdit, handleDelete }: TaskProps) => {
   return (
     <View style={[style.task, done && style.taskDone]}>
       <TouchableOpacity activeOpacity={0.7} onPress={handleDone}>
@@ -20,6 +21,10 @@ export const Task = ({ done, title, handleDone, handleEdit }: TaskProps) => {
 
       <TouchableOpacity activeOpacity={0.7} onPress={handleEdit}>
         <EditIcon />
+      </TouchableOpacity>
+
+      <TouchableOpacity activeOpacity={0.7} onPress={handleDelete}>
+        <TrashIcon />
       </TouchableOpacity>
     </View>
   )

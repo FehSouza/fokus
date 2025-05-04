@@ -1,4 +1,4 @@
-import { Button, CloseIcon, ContainerKeyboardAvoiding, SaveIcon, TrashIcon } from '@/components'
+import { Button, CloseIcon, ContainerKeyboardAvoiding, SaveIcon } from '@/components'
 import { TasksContext } from '@/context/tasks/context'
 import { theme } from '@/theme'
 import { router } from 'expo-router'
@@ -40,7 +40,6 @@ export default function AddTask() {
 
         <View style={style.buttonsWrapper}>
           <Button text="Cancelar" icon={<CloseIcon />} variant="text" onPress={handleBack} />
-          <Button text="Deletar" icon={<TrashIcon />} variant="text" onPress={() => {}} />
           <Button text="Salvar" icon={<SaveIcon />} variant="text" onPress={handleAddTask} />
         </View>
       </View>
