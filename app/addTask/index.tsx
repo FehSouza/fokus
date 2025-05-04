@@ -10,6 +10,7 @@ export default function AddTask() {
   const { addTask } = useContext(TasksContext)
 
   const handleAddTask = () => {
+    if (!title) return
     addTask(title)
     setTitle('')
     router.navigate('/tasks')
