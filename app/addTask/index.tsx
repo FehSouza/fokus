@@ -15,6 +15,11 @@ export default function AddTask() {
     router.navigate('/tasks')
   }
 
+  const handleBack = () => {
+    setTitle('')
+    router.navigate('/tasks')
+  }
+
   return (
     <ContainerKeyboardAvoiding>
       <Text style={style.title}>Adicionar tarefa:</Text>
@@ -33,7 +38,7 @@ export default function AddTask() {
         />
 
         <View style={style.buttonsWrapper}>
-          <Button text="Cancelar" icon={<CloseIcon />} variant="text" onPress={() => {}} />
+          <Button text="Cancelar" icon={<CloseIcon />} variant="text" onPress={handleBack} />
           <Button text="Deletar" icon={<TrashIcon />} variant="text" onPress={() => {}} />
           <Button text="Salvar" icon={<SaveIcon />} variant="text" onPress={handleAddTask} />
         </View>
