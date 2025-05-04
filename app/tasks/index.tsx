@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 export default function Tasks() {
-  const { tasks } = useContext(TasksContext)
+  const { tasks, toggleTaskDone } = useContext(TasksContext)
 
   return (
     <Container>
@@ -21,7 +21,7 @@ export default function Tasks() {
               key={task.id}
               title={task.title}
               done={task.done}
-              handleDone={() => console.log('done')}
+              handleDone={() => toggleTaskDone(task.id)}
               handleEdit={() => console.log('edit')}
               handleDelete={() => console.log('delete')}
             />
