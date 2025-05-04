@@ -15,5 +15,11 @@ export const TasksProvider = ({ children }: TasksProviderProps) => {
     setTasks((prev) => prev.map((task) => (task.id === id ? { ...task, done: !task.done } : task)))
   }
 
-  return <TasksContext.Provider value={{ tasks, addTask, toggleTaskDone }}>{children}</TasksContext.Provider>
+  const deleteTask = (id: number) => {
+    setTasks((prev) => prev.filter((task) => task.id !== id))
+  }
+
+  return (
+    <TasksContext.Provider value={{ tasks, addTask, toggleTaskDone, deleteTask }}>{children}</TasksContext.Provider>
+  )
 }

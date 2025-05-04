@@ -5,4 +5,5 @@ export const TasksContext = createContext({
   tasks: [] as Task[],
   addTask: (title: string) => {},
   toggleTaskDone: (id: number) => {},
+  deleteTask: (id: number) => {},
 })
