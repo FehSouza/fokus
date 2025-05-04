@@ -1,8 +1,20 @@
 import { Button, CloseIcon, ContainerKeyboardAvoiding, SaveIcon, TrashIcon } from '@/components'
+import { TasksContext } from '@/context/tasks/context'
 import { theme } from '@/theme'
+import { router } from 'expo-router'
+import { useContext, useState } from 'react'
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 
 export default function AddTask() {
+  const [title, setTitle] = useState('')
+  const { addTask } = useContext(TasksContext)
+
+  const handleTask = () => {
+    addTask(title)
+    setTitle('')
+    router.navigate('/tasks')
+  }
+
   return (
     <ContainerKeyboardAvoiding>
       <Text style={style.title}>Adicionar tarefa:</Text>
@@ -16,12 +28,14 @@ export default function AddTask() {
           placeholderTextColor={theme.colors.gray}
           multiline
           numberOfLines={5}
+          value={title}
+          onChangeText={setTitle}
         />
 
         <View style={style.buttonsWrapper}>
           <Button text="Cancelar" icon={<CloseIcon />} variant="text" onPress={() => {}} />
           <Button text="Deletar" icon={<TrashIcon />} variant="text" onPress={() => {}} />
-          <Button text="Salvar" icon={<SaveIcon />} variant="text" onPress={() => {}} />
+          <Button text="Salvar" icon={<SaveIcon />} variant="text" onPress={handleTask} />
         </View>
       </View>
     </ContainerKeyboardAvoiding>

@@ -1,24 +1,22 @@
 import { Button, Container, PlusIcon, Task } from '@/components'
+import { TasksContext } from '@/context/tasks/context'
 import { theme } from '@/theme'
 import { router } from 'expo-router'
+import { useContext } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-const TASKS = [
-  { id: 1, title: 'Estudar React Native', done: false },
-  { id: 2, title: 'Estudar Flutter', done: false },
-  { id: 3, title: 'Estudar Next.js', done: true },
-]
-
 export default function Tasks() {
+  const { tasks } = useContext(TasksContext)
+
   return (
     <Container>
       <Text style={style.title}>Lista de tarefas:</Text>
 
-      {!TASKS?.length && <Text style={style.text}>Ainda não há tarefas na sua lista,{'\n'}que tal adicionar?</Text>}
+      {!tasks?.length && <Text style={style.text}>Ainda não há tarefas na sua lista,{'\n'}que tal adicionar?</Text>}
 
-      {!!TASKS?.length && (
+      {!!tasks?.length && (
         <View style={style.tasksContent}>
-          {TASKS.map((task) => (
+          {tasks.map((task) => (
             <Task
               key={task.id}
               title={task.title}
