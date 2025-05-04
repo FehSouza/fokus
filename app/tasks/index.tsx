@@ -3,29 +3,33 @@ import { TasksContext } from '@/context/tasks/context'
 import { theme } from '@/theme'
 import { router } from 'expo-router'
 import { useContext } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { FlatList, StyleSheet, Text, View } from 'react-native'
 
 export default function Tasks() {
   const { tasks, toggleTaskDone, deleteTask } = useContext(TasksContext)
 
   return (
-    <Container>
+    <Container scrollable={false}>
       <Text style={style.title}>Lista de tarefas:</Text>
 
       {!tasks?.length && <Text style={style.text}>Ainda não há tarefas na sua lista,{'\n'}que tal adicionar?</Text>}
 
       {!!tasks?.length && (
         <View style={style.tasksContent}>
-          {tasks.map((task) => (
-            <Task
-              key={task.id}
-              title={task.title}
-              done={task.done}
-              handleDone={() => toggleTaskDone(task.id)}
-              handleEdit={() => console.log('edit')}
-              handleDelete={() => deleteTask(task.id)}
-            />
-          ))}
+          <FlatList
+            data={tasks}
+            renderItem={({ item }) => (
+              <Task
+                title={item.title}
+                done={item.done}
+                handleDone={() => toggleTaskDone(item.id)}
+                handleEdit={() => console.log('edit')}
+                handleDelete={() => deleteTask(item.id)}
+              />
+            )}
+            keyExtractor={(item) => `item-${item.id}`}
+            ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
+          />
         </View>
       )}
 
@@ -62,7 +66,7 @@ const style = StyleSheet.create({
   },
 
   tasksContent: {
-    gap: 8,
+    maxHeight: 448,
     marginTop: 32,
     paddingHorizontal: 24,
   },
