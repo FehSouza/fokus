@@ -22,7 +22,7 @@ export default function Pomodoro() {
   const [time, setTime] = useState(timeActivated.time)
   const [played, setPlayed] = useState(false)
 
-  const playedRef = useRef<undefined | NodeJS.Timeout>(undefined)
+  const playedRef = useRef<undefined | number>(undefined)
 
   const clean = () => {
     clearInterval(playedRef.current)
