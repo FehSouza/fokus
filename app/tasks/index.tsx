@@ -23,7 +23,7 @@ export default function Tasks() {
                 title={item.title}
                 done={item.done}
                 handleDone={() => toggleTaskDone(item.id)}
-                handleEdit={() => console.log('edit')}
+                handleEdit={() => router.navigate(`/editTask/${item.id}`)}
                 handleDelete={() => deleteTask(item.id)}
               />
             )}

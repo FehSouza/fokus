@@ -53,6 +53,14 @@ export default function RootLayout() {
                 headerLeft: () => <ButtonBack handleNavigate={() => router.navigate('/tasks')} />,
               }}
             />
+            <Drawer.Screen
+              name="editTask/[id]"
+              options={{
+                title: '',
+                drawerLabelStyle: { display: 'none' },
+                headerLeft: () => <ButtonBack handleNavigate={() => router.navigate('/tasks')} />,
+              }}
+            />
           </Drawer>
         </TasksProvider>
       )}

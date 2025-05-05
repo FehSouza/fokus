@@ -6,4 +6,5 @@ export const TasksContext = createContext({
   addTask: (title: string) => {},
   toggleTaskDone: (id: number) => {},
   deleteTask: (id: number) => {},
+  updateTask: (id: number, title: string) => {},
 })

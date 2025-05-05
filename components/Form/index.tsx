@@ -1,18 +1,29 @@
 import { TasksContext } from '@/context/tasks/context'
 import { theme } from '@/theme'
 import { router } from 'expo-router'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 import { Button } from '../Button'
 import { CloseIcon, SaveIcon } from '../Icons'
 
-export const Form = () => {
+interface FormProps {
+  id?: string
+}
+
+export const Form = ({ id }: FormProps) => {
   const [title, setTitle] = useState('')
-  const { addTask } = useContext(TasksContext)
+  const { tasks, addTask, updateTask } = useContext(TasksContext)
+
+  useEffect(() => {
+    if (!id) return
+    const task = tasks.find((task) => task.id === Number(id))
+    if (task) setTitle(task.title)
+  }, [id, tasks])
 
   const handleAddTask = () => {
     if (!title) return
-    addTask(title)
+
+    !id ? addTask(title) : updateTask(Number(id), title)
     setTitle('')
     router.navigate('/tasks')
   }
