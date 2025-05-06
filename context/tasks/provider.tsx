@@ -1,5 +1,6 @@
 import { Task } from '@/@types'
-import { useState } from 'react'
+import { storageGetItem, storageSetItem } from '@/utils'
+import { useEffect, useState } from 'react'
 import { TasksContext } from './context'
 
 interface TasksProviderProps {
@@ -9,18 +10,37 @@ interface TasksProviderProps {
 export const TasksProvider = ({ children }: TasksProviderProps) => {
   const [tasks, setTasks] = useState<Task[]>([])
 
-  const addTask = (title: string) => setTasks((prev) => [...prev, { id: Date.now(), title, done: false }])
+  useEffect(() => {
+    const loadTasks = async () => {
+      const storageTasks = await storageGetItem('tasks')
+      if (storageTasks) setTasks(storageTasks)
+    }
+    loadTasks()
+  }, [])
 
-  const toggleTaskDone = (id: number) => {
-    setTasks((prev) => prev.map((task) => (task.id === id ? { ...task, done: !task.done } : task)))
+  const saveTasks = async (tasks: Task[]) => {
+    setTasks(tasks)
+    await storageSetItem('tasks', tasks)
+  }
+
+  const addTask = async (title: string) => {
+    const newTasks = [...tasks, { id: Date.now(), title, done: false }]
+    saveTasks(newTasks)
+  }
+
+  const toggleTaskDone = async (id: number) => {
+    const newTasks = tasks.map((task) => (task.id === id ? { ...task, done: !task.done } : task))
+    saveTasks(newTasks)
   }
 
   const deleteTask = (id: number) => {
-    setTasks((prev) => prev.filter((task) => task.id !== id))
+    const newTasks = tasks.filter((task) => task.id !== id)
+    saveTasks(newTasks)
   }
 
   const updateTask = (id: number, title: string) => {
-    setTasks((prev) => prev.map((task) => (task.id === id ? { ...task, title } : task)))
+    const newTasks = tasks.map((task) => (task.id === id ? { ...task, title } : task))
+    saveTasks(newTasks)
   }
 
   return (
