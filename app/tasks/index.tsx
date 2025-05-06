@@ -66,7 +66,7 @@ const style = StyleSheet.create({
   },
 
   tasksContent: {
-    maxHeight: 448,
+    maxHeight: 376,
     marginTop: 32,
     paddingHorizontal: 24,
   },

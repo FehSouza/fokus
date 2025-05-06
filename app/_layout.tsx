@@ -21,7 +21,7 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={style.container}>
-      <StatusBar backgroundColor={theme.colors.blue700} barStyle="light-content" />
+      <StatusBar backgroundColor={theme.colors.blue700} barStyle="light-content" translucent />
 
       {!fontsLoaded && <AnimatedLoadingIcon />}
 
