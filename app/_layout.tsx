@@ -29,7 +29,7 @@ export default function RootLayout() {
         <TasksProvider>
           <Drawer
             screenOptions={{
-              headerStyle: { backgroundColor: theme.colors.blue700 },
+              headerStyle: { backgroundColor: theme.colors.blue700, borderBottomColor: 'transparent' },
               headerTintColor: theme.colors.white,
               drawerActiveTintColor: theme.colors.lilac,
               drawerActiveBackgroundColor: 'transparent',
