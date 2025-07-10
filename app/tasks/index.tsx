@@ -12,26 +12,25 @@ export default function Tasks() {
     <Container scrollable={false}>
       <Text style={style.title}>Lista de tarefas:</Text>
 
-      {!tasks?.length && <Text style={style.text}>Ainda não há tarefas na sua lista,{'\n'}que tal adicionar?</Text>}
-
-      {!!tasks?.length && (
-        <View style={style.tasksContent}>
-          <FlatList
-            data={tasks}
-            renderItem={({ item }) => (
-              <Task
-                title={item.title}
-                done={item.done}
-                handleDone={() => toggleTaskDone(item.id)}
-                handleEdit={() => router.navigate(`/editTask/${item.id}`)}
-                handleDelete={() => deleteTask(item.id)}
-              />
-            )}
-            keyExtractor={(item) => `item-${item.id}`}
-            ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
-          />
-        </View>
-      )}
+      <View style={style.tasksContent}>
+        <FlatList
+          data={tasks}
+          renderItem={({ item }) => (
+            <Task
+              title={item.title}
+              done={item.done}
+              handleDone={() => toggleTaskDone(item.id)}
+              handleEdit={() => router.navigate(`/editTask/${item.id}`)}
+              handleDelete={() => deleteTask(item.id)}
+            />
+          )}
+          keyExtractor={(item) => `item-${item.id}`}
+          ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
+          ListEmptyComponent={() => (
+            <Text style={style.text}>Ainda não há tarefas na sua lista,{'\n'}que tal adicionar?</Text>
+          )}
+        />
+      </View>
 
       <View style={style.buttonContent}>
         <Button
@@ -55,20 +54,19 @@ const style = StyleSheet.create({
     color: theme.colors.white,
   },
 
+  tasksContent: {
+    maxHeight: 376,
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+
   text: {
     paddingHorizontal: 24,
-    marginTop: 32,
     fontFamily: 'Montserrat_600SemiBold',
     fontSize: 18,
     lineHeight: 27,
     textAlign: 'center',
     color: theme.colors.gray,
-  },
-
-  tasksContent: {
-    maxHeight: 376,
-    marginTop: 32,
-    paddingHorizontal: 24,
   },
 
   buttonContent: {
